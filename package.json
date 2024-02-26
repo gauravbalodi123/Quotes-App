@@ -4,7 +4,8 @@
   "description": "This a quotes app made with react.js in the frontend",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon ./app.js"
+    "start": "node app.js",
+    "dev": "nodemon ./app.js"
   },
   "author": "Gaurav Balodi",
   "license": "ISC",

@@ -30,7 +30,7 @@ app.use(quotesRoutes);
 
 
 
-app.get('/hello' , (req,res)=>{
+app.get('/' , (req,res)=>{
     // javascript object ko json mein convert kar dehga.
     res.status(200).json({msg:"hello from quotes app server at 8000"});
 })

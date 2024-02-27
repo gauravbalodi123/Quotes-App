@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
@@ -5,8 +9,10 @@ const seedDB = require('./seed');
 const quotesRoutes = require('./apis/quotesRoutes')
 const cors = require('cors');
 
-mongoose.connect('mongodb://127.0.0.1:27017/quotes-db')
-    .then(() => console.log('connection open'))
+const dbUrl = process.env.dbUrl ;
+
+mongoose.connect(dbUrl)
+    .then(() => console.log('connection open database connected'))
     .catch((err) => console.log(err));
 
 ;

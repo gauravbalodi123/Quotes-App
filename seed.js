@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const Quotes = require('./models/quotes');
+const Quotes = require('./models/quotes');
 
 
 const DUMMY_QUOTES = [

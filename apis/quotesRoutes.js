@@ -43,4 +43,22 @@ router.delete('/quotes/:id', async (req, res) => {
     }
 });
 
+
+router.patch('/quotes/:id', async (req, res) => {
+    try {
+        const { author, text } = req.body;
+        const updatedFields = { author, text };
+        if (author) updatedFields.author = author;
+        if (text) updatedFields.text = text;
+        const updatedQuote = await Quotes.findByIdAndUpdate(req.params.id, updatedFields, { new: true });
+        if (!updatedQuote) {
+            return res.status(404).json({ msg: 'Quote not found.' });
+        }
+        res.status(200).json({ msg: 'Quote updated successfully.', updatedQuote });
+    } catch (error) {
+        res.status(400).json({ msg: 'Something went wrong!' });
+        console.error(error);
+    }
+});
+
 module.exports = router;
